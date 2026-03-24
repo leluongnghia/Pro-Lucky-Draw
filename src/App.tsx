@@ -219,6 +219,7 @@ export default function App() {
           setParticipants={updateParticipants}
           prizes={prizes}
           setPrizes={updatePrizes}
+          winners={winners}
           onClose={() => setIsSettingsOpen(false)}
         />
       )}

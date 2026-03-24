@@ -436,7 +436,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
               <h4 className="font-black text-sm uppercase tracking-widest text-white/40 mb-5">Liên kết</h4>
               <div className="space-y-3">
                 <a href="https://azevent.vn" target="_blank" rel="noopener noreferrer" className="block text-white/60 hover:text-yellow-400 transition-colors text-sm font-medium">🌐 AzEvent.vn</a>
-                <a href="https://facebook.com/azevent" target="_blank" rel="noopener noreferrer" className="block text-white/60 hover:text-yellow-400 transition-colors text-sm font-medium">📘 Facebook</a>
+                <a href="https://www.facebook.com/azevent.vn/" target="_blank" rel="noopener noreferrer" className="block text-white/60 hover:text-yellow-400 transition-colors text-sm font-medium">📘 Facebook</a>
                 <a href="https://github.com/leluongnghia/Pro-Lucky-Draw" target="_blank" rel="noopener noreferrer" className="block text-white/60 hover:text-yellow-400 transition-colors text-sm font-medium">💻 Github</a>
               </div>
             </div>

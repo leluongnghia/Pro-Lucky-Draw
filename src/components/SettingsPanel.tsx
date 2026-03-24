@@ -11,6 +11,7 @@ interface SettingsPanelProps {
   setParticipants: (p: Participant[]) => void;
   prizes: Prize[];
   setPrizes: (p: Prize[]) => void;
+  winners?: Record<string, Participant[]>;
   onClose: () => void;
 }
 
@@ -21,6 +22,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
   setParticipants,
   prizes,
   setPrizes,
+  winners,
   onClose
 }) => {
   const [activeTab, setActiveTab] = useState<'display' | 'data' | 'prizes' | 'branding' | 'sounds'>('display');
@@ -51,6 +53,36 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
       setParticipants(imported);
     };
     reader.readAsBinaryString(file);
+  };
+
+  const exportWinnersToExcel = () => {
+    if (!winners || Object.keys(winners).length === 0) {
+      alert("Chưa có dữ liệu trúng thưởng!");
+      return;
+    }
+    const data: any[] = [];
+    prizes.forEach(prize => {
+      const prizeWinners = winners[prize.id] || [];
+      prizeWinners.forEach(w => {
+        data.push({
+          'Giải thưởng': prize.name,
+          'Mã NV/ID': w.id,
+          'Họ tên': w.name,
+          'Phòng ban': w.department || '',
+          'Số điện thoại': w.phone || ''
+        });
+      });
+    });
+    
+    if (data.length === 0) {
+      alert("Chưa có dữ liệu trúng thưởng!");
+      return;
+    }
+
+    const ws = XLSX.utils.json_to_sheet(data);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "KẾT QUẢ");
+    XLSX.writeFile(wb, "Ket_Qua_Quay_So.xlsx");
   };
 
   const downloadTemplate = () => {
@@ -313,6 +345,12 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
                     <Upload size={16} /> Nhập Excel
                     <input type="file" accept=".xlsx, .xls" className="hidden" onChange={handleExcelImport} />
                   </label>
+                  <button 
+                    onClick={exportWinnersToExcel}
+                    className="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 px-4 py-2 rounded-lg transition-colors text-green-400 font-bold"
+                  >
+                    <Download size={16} /> Xuất kết quả
+                  </button>
                   <button 
                     onClick={() => {
                       setConfirmAction({
