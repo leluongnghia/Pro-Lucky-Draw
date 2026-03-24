@@ -111,7 +111,7 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-      <div className="bg-zinc-900 border border-zinc-800 w-full max-w-4xl h-[80vh] rounded-2xl flex overflow-hidden shadow-2xl">
+      <div className="bg-zinc-900 border border-zinc-800 w-full max-w-6xl h-[85vh] rounded-2xl flex flex-col md:flex-row overflow-hidden shadow-2xl">
         {/* Sidebar */}
         <div className="w-64 border-right border-zinc-800 bg-zinc-950 p-4 flex flex-col gap-2">
           <h2 className="text-zinc-400 text-xs font-bold uppercase tracking-widest mb-4 px-2">Cài đặt</h2>
@@ -332,9 +332,9 @@ export const SettingsPanel: React.FC<SettingsPanelProps> = ({
 
           {activeTab === 'data' && (
             <div className="space-y-6">
-              <div className="flex items-center justify-between">
-                <h3 className="text-xl font-bold">Danh sách tham gia ({participants.length})</h3>
-                <div className="flex gap-2">
+              <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+                <h3 className="text-xl font-bold flex-shrink-0">Danh sách tham gia ({participants.length})</h3>
+                <div className="flex flex-wrap gap-2 justify-start lg:justify-end">
                   <button 
                     onClick={downloadTemplate}
                     className="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 px-4 py-2 rounded-lg transition-colors text-blue-400"
