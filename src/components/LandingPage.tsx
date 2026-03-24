@@ -70,6 +70,12 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
           <div className="hidden md:flex items-center gap-8 text-sm font-bold uppercase tracking-widest text-white/60">
             <a href="#features" className="hover:text-white transition-colors">Tính năng</a>
             <a href="#pricing" className="hover:text-white transition-colors">Bảng giá</a>
+            <a href="tel:09123.86.968" className="hover:text-yellow-400 transition-colors flex items-center gap-2">
+              <span>📞</span> 09123.86.968
+            </a>
+            <a href="mailto:info@azevent.vn" className="hover:text-yellow-400 transition-colors flex items-center gap-2">
+              <span>✉️</span> info@azevent.vn
+            </a>
           </div>
           <button 
             onClick={() => setShowAuthModal(true)}
@@ -332,19 +338,59 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
 
       {/* Footer */}
       <footer className="py-20 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-10">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center">
-              <Trophy className="text-white" size={18} />
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-start justify-between gap-12 mb-12">
+            {/* Brand */}
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center">
+                  <Trophy className="text-white" size={18} />
+                </div>
+                <span className="font-black text-xl tracking-tighter italic">LUCKYDRAW.PRO</span>
+              </div>
+              <p className="text-white/40 text-sm max-w-xs leading-relaxed">
+                Sản phẩm của <a href="https://azevent.vn" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:underline">AZEvent.vn</a> — Đơn vị tổ chức sự kiện chuyên nghiệp hàng đầu Việt Nam.
+              </p>
             </div>
-            <span className="font-black text-xl tracking-tighter italic">LUCKYDRAW.PRO</span>
+
+            {/* Contact */}
+            <div>
+              <h4 className="font-black text-sm uppercase tracking-widest text-white/40 mb-5">Liên hệ</h4>
+              <div className="space-y-3">
+                <a href="tel:09123.86.968" className="flex items-center gap-3 text-white/60 hover:text-yellow-400 transition-colors text-sm font-medium">
+                  <span className="text-lg">📞</span>
+                  <div>
+                    <div className="font-bold text-white">09123.86.968</div>
+                    <div className="text-xs text-white/40">Hotline 24/7</div>
+                  </div>
+                </a>
+                <a href="mailto:info@azevent.vn" className="flex items-center gap-3 text-white/60 hover:text-yellow-400 transition-colors text-sm font-medium">
+                  <span className="text-lg">✉️</span>
+                  <div>
+                    <div className="font-bold text-white">info@azevent.vn</div>
+                    <div className="text-xs text-white/40">Email hỗ trợ</div>
+                  </div>
+                </a>
+                <div className="flex items-start gap-3 text-white/40 text-sm">
+                  <span className="text-lg mt-0.5">📍</span>
+                  <div>Sảnh D, T02, Chung cư C37 Bắc Hà, 17 Tố Hữu, Nam Từ Liêm, Hà Nội</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Links */}
+            <div>
+              <h4 className="font-black text-sm uppercase tracking-widest text-white/40 mb-5">Liên kết</h4>
+              <div className="space-y-3">
+                <a href="https://azevent.vn" target="_blank" rel="noopener noreferrer" className="block text-white/60 hover:text-yellow-400 transition-colors text-sm font-medium">🌐 AZEvent.vn</a>
+                <a href="https://facebook.com/azevent" target="_blank" rel="noopener noreferrer" className="block text-white/60 hover:text-yellow-400 transition-colors text-sm font-medium">📘 Facebook</a>
+                <a href="https://github.com/leluongnghia/Pro-Lucky-Draw" target="_blank" rel="noopener noreferrer" className="block text-white/60 hover:text-yellow-400 transition-colors text-sm font-medium">💻 Github</a>
+              </div>
+            </div>
           </div>
-          <div className="text-white/20 text-sm font-medium">
-            © 2024 LuckyDraw.Pro - Nền tảng quay số sự kiện miễn phí hàng đầu Việt Nam.
-          </div>
-          <div className="flex gap-6">
-            <a href="#" className="text-white/40 hover:text-white transition-colors">Facebook</a>
-            <a href="#" className="text-white/40 hover:text-white transition-colors">Github</a>
+
+          <div className="pt-8 border-t border-white/5 text-white/20 text-sm font-medium text-center">
+            © 2024 LuckyDraw.Pro by <a href="https://azevent.vn" target="_blank" rel="noopener" className="hover:text-yellow-400 transition-colors">AZEvent.vn</a> — Công ty TNHH Truyền thông và Tổ chức Sự kiện Số 1.
           </div>
         </div>
       </footer>
