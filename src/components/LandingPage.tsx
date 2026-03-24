@@ -103,7 +103,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
               CỦA BẠN
             </h1>
             <p className="text-xl md:text-2xl text-white/40 max-w-2xl mb-12 font-medium leading-relaxed">
-              Giải pháp quay số may mắn hoàn toàn <span className="text-white">MIỄN PHÍ</span>. Đăng ký tài khoản để lưu trữ dữ liệu sự kiện của bạn trên VPS riêng.
+              Phần mềm quay số may mắn hoàn toàn <span className="text-white">MIỄN PHÍ</span>. Đăng ký để lưu toàn bộ dữ liệu sự kiện — người tham gia, giải thưởng, kết quả — an toàn, không bao giờ mất.
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
               <button 
@@ -266,8 +266,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
               <div className="w-16 h-16 bg-green-400/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                 <Users className="text-green-400" size={32} />
               </div>
-              <h3 className="text-2xl font-black uppercase italic mb-4">Lưu trữ VPS riêng</h3>
-              <p className="text-white/40 leading-relaxed">Dữ liệu được lưu trữ an toàn trên VPS của bạn, không phụ thuộc vào bên thứ ba.</p>
+              <h3 className="text-2xl font-black uppercase italic mb-4">Dữ liệu luôn sẵn sàng</h3>
+              <p className="text-white/40 leading-relaxed">Danh sách người tham gia, giải thưởng và kết quả được lưu tự động. Mở trên bất kỳ thiết bị nào, lúc nào cũng có.</p>
             </div>
           </div>
         </div>
