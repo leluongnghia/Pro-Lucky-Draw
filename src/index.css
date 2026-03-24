@@ -11,6 +11,10 @@ body {
   color: #fff;
   margin: 0;
   padding: 0;
+}
+
+/* Chỉ khoá scroll khi đang ở màn hình quay số (App mode) */
+body.app-mode {
   overflow: hidden;
 }
 

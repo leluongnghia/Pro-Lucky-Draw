@@ -45,6 +45,16 @@ export default function App() {
   const [showLanding, setShowLanding] = useState(true);
   const [user, setUser] = useState<any>(null);
 
+  // Toggle overflow body: khoá scroll khi vào app, mở khi ở landing page
+  useEffect(() => {
+    if (!showLanding && !isLoading) {
+      document.body.classList.add('app-mode');
+    } else {
+      document.body.classList.remove('app-mode');
+    }
+    return () => document.body.classList.remove('app-mode');
+  }, [showLanding, isLoading]);
+
   // Initial Auth Check
   useEffect(() => {
     const checkAuth = async () => {
@@ -164,7 +174,7 @@ export default function App() {
   }
 
   return (
-    <div className="w-full h-screen bg-black overflow-hidden">
+    <div className="w-full h-screen bg-black">
       <LEDWrapper 
         targetWidth={settings.resolution.width} 
         targetHeight={settings.resolution.height}
