@@ -79,7 +79,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
           </div>
           <button 
             onClick={() => setShowAuthModal(true)}
-            className="bg-white text-black px-6 py-3 rounded-full font-black text-sm uppercase tracking-widest hover:bg-yellow-400 transition-all hover:scale-105 active:scale-95"
+            className="bg-white text-black px-5 py-2.5 md:px-6 md:py-3 rounded-full font-black text-[11px] md:text-sm uppercase tracking-widest hover:bg-yellow-400 transition-all hover:scale-105 active:scale-95"
           >
             Đăng nhập
           </button>
@@ -103,18 +103,18 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
               <Star className="text-yellow-400 fill-yellow-400" size={14} />
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/60">Phần mềm quay số chuyên nghiệp nhất</span>
             </div>
-            <h1 className="text-7xl md:text-9xl font-black italic uppercase leading-[0.85] tracking-tighter mb-10">
+            <h1 className="text-6xl sm:text-7xl md:text-[8rem] lg:text-[10rem] font-black italic uppercase leading-[0.85] tracking-tighter mb-6 md:mb-10 mt-6 md:mt-0">
               NÂNG TẦM <br />
               <span className="text-yellow-400">SỰ KIỆN</span> <br />
               CỦA BẠN
             </h1>
-            <p className="text-xl md:text-2xl text-white/40 max-w-2xl mb-12 font-medium leading-relaxed">
+            <p className="text-base sm:text-xl md:text-2xl text-white/40 max-w-2xl mb-10 md:mb-12 font-medium leading-relaxed">
               Phần mềm quay số may mắn hoàn toàn <span className="text-white">MIỄN PHÍ</span>. Đăng ký để lưu toàn bộ dữ liệu sự kiện — người tham gia, giải thưởng, kết quả — an toàn, không bao giờ mất.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
               <button 
                 onClick={() => setShowAuthModal(true)}
-                className="group bg-yellow-400 text-black px-10 py-6 rounded-2xl font-black text-xl uppercase tracking-widest hover:bg-white transition-all flex items-center justify-center gap-4 shadow-[0_0_40px_rgba(250,204,21,0.3)]"
+                className="group bg-yellow-400 text-black px-6 py-4 md:px-10 md:py-6 rounded-2xl font-black text-lg md:text-xl uppercase tracking-widest hover:bg-white transition-all flex items-center justify-center gap-4 shadow-[0_0_40px_rgba(250,204,21,0.3)] active:scale-95"
               >
                 Bắt đầu ngay
                 <ArrowRight className="group-hover:translate-x-2 transition-transform" />
@@ -152,17 +152,17 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
               initial={{ scale: 0.9, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 20 }}
-              className="relative w-full max-w-md bg-zinc-900 border border-white/10 rounded-[40px] p-10 overflow-hidden"
+              className="relative w-full max-w-md bg-zinc-900 border border-white/10 rounded-[32px] md:rounded-[40px] p-6 md:p-10 overflow-y-auto max-h-[90vh] custom-scrollbar"
             >
               <button 
                 onClick={() => setShowAuthModal(false)}
-                className="absolute top-6 right-6 text-white/40 hover:text-white transition-colors"
+                className="absolute top-4 right-4 md:top-6 md:right-6 text-white/40 hover:text-white transition-colors p-2"
               >
                 <X size={24} />
               </button>
 
-              <div className="mb-8">
-                <h2 className="text-3xl font-black italic uppercase tracking-tighter mb-2">
+              <div className="mb-6 md:mb-8 mt-2 md:mt-0">
+                <h2 className="text-2xl md:text-3xl font-black italic uppercase tracking-tighter mb-2">
                   {isLogin ? 'Chào mừng trở lại' : 'Tạo tài khoản mới'}
                 </h2>
                 <p className="text-white/40 text-sm">
@@ -178,7 +178,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
                     required
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-yellow-400 transition-colors"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl md:rounded-2xl px-4 py-3 md:px-6 md:py-4 outline-none focus:border-yellow-400 transition-colors text-base"
                     placeholder="Nhập tên đăng nhập..."
                   />
                 </div>
@@ -189,7 +189,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-yellow-400 transition-colors"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl md:rounded-2xl px-4 py-3 md:px-6 md:py-4 outline-none focus:border-yellow-400 transition-colors text-base"
                     placeholder="Nhập mật khẩu..."
                   />
                 </div>
@@ -204,7 +204,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
                         required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-yellow-400 transition-colors"
+                        className="w-full bg-white/5 border border-white/10 rounded-xl md:rounded-2xl px-4 py-3 md:px-6 md:py-4 outline-none focus:border-yellow-400 transition-colors text-base"
                         placeholder="your@email.com"
                       />
                     </div>
@@ -215,7 +215,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
                         required
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
-                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 outline-none focus:border-yellow-400 transition-colors"
+                        className="w-full bg-white/5 border border-white/10 rounded-xl md:rounded-2xl px-4 py-3 md:px-6 md:py-4 outline-none focus:border-yellow-400 transition-colors text-base"
                         placeholder="0901234567"
                       />
                     </div>
@@ -231,7 +231,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
                 <button 
                   type="submit"
                   disabled={loading}
-                  className="w-full bg-yellow-400 text-black py-5 rounded-2xl font-black text-lg uppercase tracking-widest hover:bg-white transition-all disabled:opacity-50 flex items-center justify-center gap-3"
+                  className="w-full bg-yellow-400 text-black py-4 md:py-5 rounded-xl md:rounded-2xl font-black text-base md:text-lg uppercase tracking-widest hover:bg-white transition-all disabled:opacity-50 flex items-center justify-center gap-3 active:scale-[0.98]"
                 >
                   {loading ? 'Đang xử lý...' : (isLogin ? <><LogIn size={20} /> Đăng nhập</> : <><UserPlus size={20} /> Đăng ký</>)}
                 </button>
@@ -254,21 +254,21 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
       <section id="features" className="py-32 bg-white/[0.02]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-10 bg-white/5 border border-white/10 rounded-[40px] hover:border-yellow-400/50 transition-all group">
+            <div className="p-8 md:p-10 bg-white/5 border border-white/10 rounded-[32px] md:rounded-[40px] hover:border-yellow-400/50 transition-all group">
               <div className="w-16 h-16 bg-yellow-400/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                 <Zap className="text-yellow-400" size={32} />
               </div>
               <h3 className="text-2xl font-black uppercase italic mb-4">Tốc độ & Mượt mà</h3>
               <p className="text-white/40 leading-relaxed">Hiệu ứng quay số 60FPS, mượt mà trên mọi thiết bị từ màn hình LED lớn đến máy tính bảng.</p>
             </div>
-            <div className="p-10 bg-white/5 border border-white/10 rounded-[40px] hover:border-yellow-400/50 transition-all group">
+            <div className="p-8 md:p-10 bg-white/5 border border-white/10 rounded-[32px] md:rounded-[40px] hover:border-yellow-400/50 transition-all group">
               <div className="w-16 h-16 bg-blue-400/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                 <Shield className="text-blue-400" size={32} />
               </div>
               <h3 className="text-2xl font-black uppercase italic mb-4">Minh bạch & Tin cậy</h3>
               <p className="text-white/40 leading-relaxed">Thuật toán ngẫu nhiên công bằng, đảm bảo tính khách quan tuyệt đối cho mọi giải thưởng.</p>
             </div>
-            <div className="p-10 bg-white/5 border border-white/10 rounded-[40px] hover:border-yellow-400/50 transition-all group">
+            <div className="p-8 md:p-10 bg-white/5 border border-white/10 rounded-[32px] md:rounded-[40px] hover:border-yellow-400/50 transition-all group">
               <div className="w-16 h-16 bg-green-400/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                 <Users className="text-green-400" size={32} />
               </div>
@@ -283,7 +283,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
       <section id="pricing" className="py-32 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-5xl md:text-7xl font-black italic uppercase tracking-tighter mb-8">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-black italic uppercase tracking-tighter mb-6 md:mb-8">
               CHÚNG TÔI <span className="text-yellow-400">MIỄN PHÍ</span> <br />
               MÃI MÃI
             </h2>
@@ -292,9 +292,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
             </p>
             
             <div className="bg-gradient-to-b from-yellow-400 to-yellow-500 p-[1px] rounded-[48px]">
-              <div className="bg-black rounded-[47px] p-12 md:p-20">
+              <div className="bg-black rounded-[47px] p-8 sm:p-12 md:p-20">
                 <div className="grid md:grid-cols-2 gap-12 text-left">
-                  <div className="space-y-6">
+                  <div className="space-y-4 md:space-y-6">
                     <div className="flex items-center gap-4">
                       <CheckCircle2 className="text-yellow-400" />
                       <span className="font-bold text-lg">Không giới hạn số người tham gia</span>
@@ -308,7 +308,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
                       <span className="font-bold text-lg">Xuất báo cáo kết quả Excel</span>
                     </div>
                   </div>
-                  <div className="space-y-6">
+                  <div className="space-y-4 md:space-y-6">
                     <div className="flex items-center gap-4">
                       <CheckCircle2 className="text-yellow-400" />
                       <span className="font-bold text-lg">Tùy chỉnh giao diện LED chuyên nghiệp</span>
@@ -326,7 +326,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
                 
                 <button 
                   onClick={() => setShowAuthModal(true)}
-                  className="mt-16 w-full bg-yellow-400 text-black py-8 rounded-3xl font-black text-2xl uppercase tracking-[0.2em] hover:bg-white transition-all shadow-[0_20px_60px_rgba(250,204,21,0.2)]"
+                  className="mt-10 md:mt-16 w-full bg-yellow-400 text-black py-5 md:py-8 rounded-2xl md:rounded-3xl font-black text-lg md:text-2xl uppercase md:tracking-[0.2em] hover:bg-white transition-all shadow-[0_20px_60px_rgba(250,204,21,0.2)] active:scale-95"
                 >
                   Đăng ký ngay - Miễn phí
                 </button>
@@ -339,12 +339,12 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
       {/* Giới thiệu công ty AzEvent */}
       <section className="py-24 bg-white/[0.02] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 bg-yellow-400/10 border border-yellow-400/20 px-4 py-2 rounded-full mb-6">
-                <span className="text-yellow-400 text-xs font-bold uppercase tracking-widest">Đơn vị phát triển</span>
+              <div className="inline-flex items-center gap-2 bg-yellow-400/10 border border-yellow-400/20 px-4 py-2 rounded-full mb-5 md:mb-6">
+                <span className="text-yellow-400 text-[10px] md:text-xs font-bold uppercase tracking-widest">Đơn vị phát triển</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-black italic uppercase tracking-tighter mb-6 leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black italic uppercase tracking-tighter mb-4 md:mb-6 leading-tight">
                 ĐƯỢC PHÁT TRIỂN BỞI <span className="text-yellow-400">AZEVENT.VN</span>
               </h2>
               <p className="text-white/50 text-lg leading-relaxed mb-8">
@@ -353,33 +353,33 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
               <p className="text-white/40 leading-relaxed mb-10">
                 LuckyDraw.Pro được xây dựng từ chính nhu cầu thực tế của hàng trăm sự kiện đã tổ chức — giúp phần quay số trở nên <span className="text-white">chuyên nghiệp, minh bạch và ấn tượng</span> hơn trước hàng nghìn khán giả.
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="https://azevent.vn"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-yellow-400 text-black px-8 py-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white transition-all"
+                  className="bg-yellow-400 text-black px-6 py-4 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-black text-xs md:text-sm uppercase tracking-widest hover:bg-white transition-all text-center active:scale-95"
                 >
                   🌐 Xem AzEvent.vn
                 </a>
                 <a
                   href="tel:09123.86.968"
-                  className="bg-white/5 border border-white/10 px-8 py-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:border-yellow-400/50 hover:text-yellow-400 transition-all"
+                  className="bg-white/5 border border-white/10 px-6 py-4 md:px-8 md:py-4 rounded-xl md:rounded-2xl font-black text-xs md:text-sm uppercase tracking-widest hover:border-yellow-400/50 hover:text-yellow-400 transition-all text-center active:scale-95"
                 >
                   📞 09123.86.968
                 </a>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-4 md:gap-6 mt-4 md:mt-0">
               {[
-                { num: '10+', label: 'Năm kinh nghiệm', sub: 'Tổ chức sự kiện chuyên nghiệp' },
-                { num: '500+', label: 'Sự kiện đã tổ chức', sub: 'Gala, tất niên, hội nghị' },
-                { num: '50K+', label: 'Khách mời phục vụ', sub: 'Trên toàn quốc' },
-                { num: '24/7', label: 'Hỗ trợ kỹ thuật', sub: 'Hotline: 09123.86.968' },
+                { num: '10+', label: 'Năm kinh nghiệm', sub: 'Tổ chức sự kiện' },
+                { num: '500+', label: 'Sự kiện', sub: 'Gala, tất niên' },
+                { num: '50K+', label: 'Khách mời', sub: 'Đã phục vụ' },
+                { num: '24/7', label: 'Hỗ trợ', sub: '09123.86.968' },
               ].map((item, i) => (
-                <div key={i} className="p-8 bg-white/5 border border-white/10 rounded-[32px] hover:border-yellow-400/30 transition-all">
-                  <div className="text-3xl font-black text-yellow-400 mb-1">{item.num}</div>
+                <div key={i} className="p-5 md:p-8 bg-white/5 border border-white/10 rounded-[24px] md:rounded-[32px] hover:border-yellow-400/30 transition-all">
+                  <div className="text-2xl md:text-3xl font-black text-yellow-400 mb-1">{item.num}</div>
                   <div className="font-bold text-white mb-1">{item.label}</div>
                   <div className="text-white/40 text-xs">{item.sub}</div>
                 </div>
@@ -392,7 +392,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
       {/* Footer */}
       <footer className="py-20 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-start justify-between gap-12 mb-12">
+          <div className="flex flex-col md:flex-row items-start justify-between gap-10 md:gap-12 mb-10 md:mb-12">
             {/* Brand */}
             <div>
               <div className="flex items-center gap-3 mb-4">
