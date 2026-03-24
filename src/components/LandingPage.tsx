@@ -336,6 +336,59 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
         </div>
       </section>
 
+      {/* Giới thiệu công ty AZEvent */}
+      <section className="py-24 bg-white/[0.02] border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-yellow-400/10 border border-yellow-400/20 px-4 py-2 rounded-full mb-6">
+                <span className="text-yellow-400 text-xs font-bold uppercase tracking-widest">Đơn vị phát triển</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black italic uppercase tracking-tighter mb-6 leading-tight">
+                ĐƯỢC PHÁT TRIỂN BỞI <span className="text-yellow-400">AZEVENT.VN</span>
+              </h2>
+              <p className="text-white/50 text-lg leading-relaxed mb-8">
+                AZEvent là đơn vị tổ chức sự kiện chuyên nghiệp hàng đầu Việt Nam với hơn <span className="text-white font-bold">10 năm kinh nghiệm</span> trong lĩnh vực tổ chức gala dinner, tất niên, hội nghị và các sự kiện doanh nghiệp quy mô lớn.
+              </p>
+              <p className="text-white/40 leading-relaxed mb-10">
+                LuckyDraw.Pro được xây dựng từ chính nhu cầu thực tế của hàng trăm sự kiện đã tổ chức — giúp phần quay số trở nên <span className="text-white">chuyên nghiệp, minh bạch và ấn tượng</span> hơn trước hàng nghìn khán giả.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="https://azevent.vn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-yellow-400 text-black px-8 py-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white transition-all"
+                >
+                  🌐 Xem AZEvent.vn
+                </a>
+                <a
+                  href="tel:09123.86.968"
+                  className="bg-white/5 border border-white/10 px-8 py-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:border-yellow-400/50 hover:text-yellow-400 transition-all"
+                >
+                  📞 09123.86.968
+                </a>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-6">
+              {[
+                { num: '10+', label: 'Năm kinh nghiệm', sub: 'Tổ chức sự kiện chuyên nghiệp' },
+                { num: '500+', label: 'Sự kiện đã tổ chức', sub: 'Gala, tất niên, hội nghị' },
+                { num: '50K+', label: 'Khách mời phục vụ', sub: 'Trên toàn quốc' },
+                { num: '24/7', label: 'Hỗ trợ kỹ thuật', sub: 'Hotline: 09123.86.968' },
+              ].map((item, i) => (
+                <div key={i} className="p-8 bg-white/5 border border-white/10 rounded-[32px] hover:border-yellow-400/30 transition-all">
+                  <div className="text-3xl font-black text-yellow-400 mb-1">{item.num}</div>
+                  <div className="font-bold text-white mb-1">{item.label}</div>
+                  <div className="text-white/40 text-xs">{item.sub}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="py-20 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6">
