@@ -336,7 +336,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
         </div>
       </section>
 
-      {/* Giới thiệu công ty AZEvent */}
+      {/* Giới thiệu công ty AzEvent */}
       <section className="py-24 bg-white/[0.02] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -348,7 +348,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
                 ĐƯỢC PHÁT TRIỂN BỞI <span className="text-yellow-400">AZEVENT.VN</span>
               </h2>
               <p className="text-white/50 text-lg leading-relaxed mb-8">
-                AZEvent là đơn vị tổ chức sự kiện chuyên nghiệp hàng đầu Việt Nam với hơn <span className="text-white font-bold">10 năm kinh nghiệm</span> trong lĩnh vực tổ chức gala dinner, tất niên, hội nghị và các sự kiện doanh nghiệp quy mô lớn.
+                AzEvent là đơn vị tổ chức sự kiện chuyên nghiệp hàng đầu Việt Nam với hơn <span className="text-white font-bold">10 năm kinh nghiệm</span> trong lĩnh vực tổ chức gala dinner, tất niên, hội nghị và các sự kiện doanh nghiệp quy mô lớn.
               </p>
               <p className="text-white/40 leading-relaxed mb-10">
                 LuckyDraw.Pro được xây dựng từ chính nhu cầu thực tế của hàng trăm sự kiện đã tổ chức — giúp phần quay số trở nên <span className="text-white">chuyên nghiệp, minh bạch và ấn tượng</span> hơn trước hàng nghìn khán giả.
@@ -360,7 +360,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
                   rel="noopener noreferrer"
                   className="bg-yellow-400 text-black px-8 py-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-white transition-all"
                 >
-                  🌐 Xem AZEvent.vn
+                  🌐 Xem AzEvent.vn
                 </a>
                 <a
                   href="tel:09123.86.968"
@@ -402,7 +402,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
                 <span className="font-black text-xl tracking-tighter italic">LUCKYDRAW.PRO</span>
               </div>
               <p className="text-white/40 text-sm max-w-xs leading-relaxed">
-                Sản phẩm của <a href="https://azevent.vn" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:underline">AZEvent.vn</a> — Đơn vị tổ chức sự kiện chuyên nghiệp hàng đầu Việt Nam.
+                Sản phẩm của <a href="https://azevent.vn" target="_blank" rel="noopener noreferrer" className="text-yellow-400 hover:underline">AzEvent.vn</a> — Đơn vị tổ chức sự kiện chuyên nghiệp hàng đầu Việt Nam.
               </p>
             </div>
 
@@ -435,7 +435,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
             <div>
               <h4 className="font-black text-sm uppercase tracking-widest text-white/40 mb-5">Liên kết</h4>
               <div className="space-y-3">
-                <a href="https://azevent.vn" target="_blank" rel="noopener noreferrer" className="block text-white/60 hover:text-yellow-400 transition-colors text-sm font-medium">🌐 AZEvent.vn</a>
+                <a href="https://azevent.vn" target="_blank" rel="noopener noreferrer" className="block text-white/60 hover:text-yellow-400 transition-colors text-sm font-medium">🌐 AzEvent.vn</a>
                 <a href="https://facebook.com/azevent" target="_blank" rel="noopener noreferrer" className="block text-white/60 hover:text-yellow-400 transition-colors text-sm font-medium">📘 Facebook</a>
                 <a href="https://github.com/leluongnghia/Pro-Lucky-Draw" target="_blank" rel="noopener noreferrer" className="block text-white/60 hover:text-yellow-400 transition-colors text-sm font-medium">💻 Github</a>
               </div>
@@ -443,7 +443,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onEnterApp, onLoginSuc
           </div>
 
           <div className="pt-8 border-t border-white/5 text-white/20 text-sm font-medium text-center">
-            © 2024 LuckyDraw.Pro by <a href="https://azevent.vn" target="_blank" rel="noopener" className="hover:text-yellow-400 transition-colors">AZEvent.vn</a> — Công ty TNHH Truyền thông và Tổ chức Sự kiện Số 1.
+            © 2024 LuckyDraw.Pro by <a href="https://azevent.vn" target="_blank" rel="noopener" className="hover:text-yellow-400 transition-colors">AzEvent.vn</a> — Công ty TNHH Truyền thông và Tổ chức Sự kiện Số 1.
           </div>
         </div>
       </footer>
