@@ -177,7 +177,32 @@ export default function App() {
   }
 
   return (
-    <div className="w-full h-screen bg-black">
+    <div className="w-full h-screen bg-black overflow-hidden relative">
+      {/* GLOBAL BACKGROUND LAYER - Fills entire browser window to prevent tiling on LED screens */}
+      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        {settings.theme.backgroundType === 'color' && (
+          <div className="w-full h-full" style={{ backgroundColor: settings.theme.backgroundColor }} />
+        )}
+        {settings.theme.backgroundType === 'image' && settings.theme.backgroundMedia && (
+          <div 
+            className="w-full h-full bg-center bg-cover bg-no-repeat"
+            style={{ backgroundImage: `url(${settings.theme.backgroundMedia})` }}
+          />
+        )}
+        {settings.theme.backgroundType === 'video' && settings.theme.backgroundMedia && (
+          <video 
+            src={settings.theme.backgroundMedia} 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="w-full h-full object-cover" 
+          />
+        )}
+        {/* Constant overlay for contrast */}
+        <div className="absolute inset-0 bg-black/30 backdrop-blur-[1px]" />
+      </div>
+
       <LEDWrapper 
         targetWidth={settings.resolution.width} 
         targetHeight={settings.resolution.height}

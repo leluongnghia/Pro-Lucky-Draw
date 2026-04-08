@@ -11,6 +11,13 @@ body {
   color: #fff;
   margin: 0;
   padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: fixed;
+  overflow: hidden;
 }
 
 /* Chỉ khoá scroll khi đang ở màn hình quay số (App mode) */

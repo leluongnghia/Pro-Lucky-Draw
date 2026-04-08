@@ -227,31 +227,31 @@ export const DrawScreen: React.FC<DrawScreenProps> = ({
     onUpdateSettings(newSettings);
   };
 
+  useEffect(() => {
+    // Apply background to body to escape LEDWrapper scaling and prevent tiling
+    const body = document.body;
+    if (settings.theme.backgroundType === 'image' && settings.theme.backgroundMedia) {
+      body.style.backgroundImage = `url(${settings.theme.backgroundMedia})`;
+      body.style.backgroundSize = 'cover';
+      body.style.backgroundPosition = 'center';
+      body.style.backgroundRepeat = 'no-repeat';
+      body.style.backgroundColor = 'transparent';
+    } else if (settings.theme.backgroundType === 'color') {
+      body.style.backgroundColor = settings.theme.backgroundColor;
+      body.style.backgroundImage = 'none';
+    } else {
+      body.style.backgroundImage = 'none';
+      body.style.backgroundColor = '#000';
+    }
+
+    return () => {
+      body.style.backgroundImage = '';
+      body.style.backgroundColor = '';
+    };
+  }, [settings.theme]);
+
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center text-white font-sans overflow-hidden">
-      {/* Background Layer */}
-      <div className="absolute inset-0 z-0 bg-black">
-        {settings.theme.backgroundType === 'color' && (
-          <div className="w-full h-full" style={{ backgroundColor: settings.theme.backgroundColor }} />
-        )}
-        {settings.theme.backgroundType === 'image' && settings.theme.backgroundMedia && (
-          <div 
-            className="w-full h-full bg-center bg-cover bg-no-repeat"
-            style={{ backgroundImage: `url(${settings.theme.backgroundMedia})` }}
-          />
-        )}
-        {settings.theme.backgroundType === 'video' && settings.theme.backgroundMedia && (
-          <video 
-            src={settings.theme.backgroundMedia} 
-            autoPlay 
-            loop 
-            muted 
-            className="w-full h-full object-cover" 
-          />
-        )}
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
-      </div>
-
       {/* Content Layer */}
       <div className="relative z-10 w-full h-full flex flex-col items-center justify-between py-20 px-10">
         {/* Brand Logo */}
@@ -347,14 +347,14 @@ export const DrawScreen: React.FC<DrawScreenProps> = ({
                 key="winner"
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                className={`w-full mx-auto ${settings.winnerCardWidth} ${settings.winnerCardWidth === 'max-w-full' ? 'px-2' : 'px-4'}`}
+                className="w-full px-12 max-w-[95vw]"
               >
                 <div 
-                  className={`grid gap-4 ${settings.winnerLayout === 'list' ? 'flex flex-col' : ''}`}
+                  className={`grid gap-6 ${settings.winnerLayout === 'list' ? 'flex flex-col' : ''}`}
                   style={{ 
                     gridTemplateColumns: settings.winnerLayout === 'list' 
                       ? '1fr' 
-                      : `repeat(${lastWinners.length === 1 ? 1 : settings.winnerGridCols}, minmax(0, 1fr))` 
+                      : `repeat(${lastWinners.length === 1 ? 1 : settings.winnerGridCols}, minmax(180px, 1fr))` 
                   }}
                 >
                   {lastWinners.map((winner, idx) => (

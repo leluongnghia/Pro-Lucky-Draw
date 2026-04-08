@@ -49,7 +49,7 @@ export const LEDWrapper: React.FC<LEDWrapperProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 bg-black flex items-center justify-center overflow-hidden">
+    <div className="fixed inset-0 bg-transparent flex items-center justify-center overflow-hidden">
       <div style={wrapperStyle}>
         {children}
       </div>
