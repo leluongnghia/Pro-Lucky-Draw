@@ -32,7 +32,10 @@ const DEFAULT_SETTINGS: AppSettings = {
   winnerGridCols: 5,
   winnerCardWidth: 'max-w-6xl',
   winnerLayout: 'grid',
-  readyText: 'SẴN SÀNG QUAY SỐ'
+  readyText: 'SẴN SÀNG QUAY SỐ',
+  readyTextSize: 120,
+  winnersListScale: 1,
+  controlsScale: 1
 };
 
 export default function App() {

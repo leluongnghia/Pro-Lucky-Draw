@@ -204,6 +204,29 @@ export const DrawScreen: React.FC<DrawScreenProps> = ({
     }
   };
 
+  const handleResize = (e: React.WheelEvent, type: 'logo' | 'eventName' | 'prizeGroup' | 'readyText' | 'winnersList' | 'controls') => {
+    // Only resize when hovering + wheel (using metaKey or altKey for safety is optional, but simple wheel is what user asked)
+    e.stopPropagation();
+    const delta = e.deltaY > 0 ? -2 : 2;
+    
+    const newSettings = { ...settings };
+    if (type === 'logo' && newSettings.logo) {
+      newSettings.logo = { ...newSettings.logo, size: Math.max(40, (newSettings.logo.size || 120) + delta * 2) };
+    } else if (type === 'eventName') {
+      newSettings.eventNameSize = Math.max(20, (newSettings.eventNameSize || 80) + delta);
+    } else if (type === 'prizeGroup') {
+      newSettings.prizeNameSize = Math.max(20, (newSettings.prizeNameSize || 100) + delta);
+    } else if (type === 'readyText') {
+      newSettings.readyTextSize = Math.max(20, (newSettings.readyTextSize || 120) + delta);
+    } else if (type === 'winnersList') {
+      newSettings.winnersListScale = Math.max(0.5, (newSettings.winnersListScale || 1) + delta * 0.01);
+    } else if (type === 'controls') {
+      newSettings.controlsScale = Math.max(0.5, (newSettings.controlsScale || 1) + delta * 0.01);
+    }
+    
+    onUpdateSettings(newSettings);
+  };
+
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center text-white font-sans overflow-hidden">
       {/* Background Layer */}
@@ -236,7 +259,8 @@ export const DrawScreen: React.FC<DrawScreenProps> = ({
           <motion.div 
             drag
             dragMomentum={false}
-            className={`absolute top-10 ${settings.logo.position === 'left' ? 'left-10' : 'right-10'} z-20 cursor-move`}
+            onWheel={(e) => handleResize(e, 'logo')}
+            className={`absolute top-10 ${settings.logo.position === 'left' ? 'left-10' : 'right-10'} z-20 cursor-move transition-shadow hover:shadow-2xl rounded-lg`}
             style={{ width: settings.logo.size }}
           >
             <img 
@@ -253,6 +277,7 @@ export const DrawScreen: React.FC<DrawScreenProps> = ({
           <motion.h2 
             drag
             dragMomentum={false}
+            onWheel={(e) => handleResize(e, 'eventName')}
             className="font-black tracking-[0.2em] uppercase mb-8 drop-shadow-2xl cursor-move text-center"
             style={{ color: settings.theme.eventNameColor, fontSize: settings.eventNameSize }}
           >
@@ -262,6 +287,7 @@ export const DrawScreen: React.FC<DrawScreenProps> = ({
           <motion.div 
             drag
             dragMomentum={false}
+            onWheel={(e) => handleResize(e, 'prizeGroup')}
             className="flex flex-col items-center gap-6 cursor-move"
           >
             <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-2 rounded-full border border-white/20">
@@ -403,9 +429,11 @@ export const DrawScreen: React.FC<DrawScreenProps> = ({
                 key="idle"
                 drag
                 dragMomentum={false}
+                onWheel={(e) => handleResize(e, 'readyText')}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="text-white/20 text-9xl font-black italic uppercase tracking-tighter select-none cursor-move text-center"
+                className="text-white/20 font-black italic uppercase tracking-tighter select-none cursor-move text-center"
+                style={{ fontSize: settings.readyTextSize || 120 }}
               >
                 {settings.readyText || 'Sẵn sàng quay số'}
               </motion.div>
@@ -472,7 +500,9 @@ export const DrawScreen: React.FC<DrawScreenProps> = ({
             <motion.div 
               drag
               dragMomentum={false}
+              onWheel={(e) => handleResize(e, 'controls')}
               className="flex flex-col items-center gap-4 cursor-move"
+              style={{ transform: `scale(${settings.controlsScale || 1})` }}
             >
               <button 
                 onClick={startSpin}
@@ -509,7 +539,9 @@ export const DrawScreen: React.FC<DrawScreenProps> = ({
             <motion.div 
               drag
               dragMomentum={false}
+              onWheel={(e) => handleResize(e, 'winnersList')}
               className="flex justify-end cursor-move"
+              style={{ transform: `scale(${settings.winnersListScale || 1})`, transformOrigin: 'bottom right' }}
             >
               <div className="bg-black/40 backdrop-blur-xl border border-white/10 rounded-3xl p-6 w-80 max-h-64 overflow-y-auto shadow-2xl pointer-events-auto">
                 <h3 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-4">Danh sách trúng giải</h3>

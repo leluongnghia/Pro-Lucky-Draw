@@ -44,9 +44,12 @@ export interface AppSettings {
   eventName: string;
   eventNameSize: number;
   prizeNameSize: number;
+  readyTextSize?: number;
   winnerGridCols: number;
   winnerCardWidth: string; // e.g., 'max-w-6xl' or 'max-w-full'
   winnerLayout: 'grid' | 'list';
+  winnersListScale?: number;
+  controlsScale?: number;
   readyText?: string;
 }
 
