@@ -191,13 +191,16 @@ export default function App() {
         )}
         {settings.theme.backgroundType === 'video' && settings.theme.backgroundMedia && (
           <video 
-            src={settings.theme.backgroundMedia} 
+            key={settings.theme.backgroundMedia}
             autoPlay 
             loop 
             muted 
             playsInline
             className="w-full h-full object-cover" 
-          />
+            style={{ objectPosition: 'center' }}
+          >
+            <source src={settings.theme.backgroundMedia} />
+          </video>
         )}
         {/* Constant overlay for contrast */}
         <div className="absolute inset-0 bg-black/30 backdrop-blur-[1px]" />
