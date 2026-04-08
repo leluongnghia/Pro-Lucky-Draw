@@ -204,7 +204,7 @@ export const DrawScreen: React.FC<DrawScreenProps> = ({
     }
   };
 
-  const handleResize = (e: React.WheelEvent, type: 'logo' | 'eventName' | 'prizeGroup' | 'readyText' | 'winnersList' | 'controls') => {
+  const handleResize = (e: React.WheelEvent, type: 'logo' | 'eventName' | 'prizeGroup' | 'readyText' | 'winnersList' | 'controls' | 'winnerDisplay') => {
     // Only resize when hovering + wheel (using metaKey or altKey for safety is optional, but simple wheel is what user asked)
     e.stopPropagation();
     const delta = e.deltaY > 0 ? -2 : 2;
@@ -222,6 +222,8 @@ export const DrawScreen: React.FC<DrawScreenProps> = ({
       newSettings.winnersListScale = Math.max(0.5, (newSettings.winnersListScale || 1) + delta * 0.01);
     } else if (type === 'controls') {
       newSettings.controlsScale = Math.max(0.5, (newSettings.controlsScale || 1) + delta * 0.01);
+    } else if (type === 'winnerDisplay') {
+      newSettings.winnerCardWidth = String(Math.max(0.5, (parseFloat(newSettings.winnerCardWidth) || 1) + delta * 0.01));
     }
     
     onUpdateSettings(newSettings);
@@ -345,16 +347,23 @@ export const DrawScreen: React.FC<DrawScreenProps> = ({
             ) : lastWinners.length > 0 ? (
               <motion.div 
                 key="winner"
+                drag
+                dragMomentum={false}
+                onWheel={(e) => handleResize(e, 'winnerDisplay')}
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                className="w-full px-12 max-w-[95vw]"
+                className="w-full px-12 cursor-move"
+                style={{ 
+                  transform: `scale(${parseFloat(settings.winnerCardWidth) || 1})`,
+                  maxWidth: '100%'
+                }}
               >
                 <div 
                   className={`grid gap-6 ${settings.winnerLayout === 'list' ? 'flex flex-col' : ''}`}
                   style={{ 
                     gridTemplateColumns: settings.winnerLayout === 'list' 
                       ? '1fr' 
-                      : `repeat(${lastWinners.length === 1 ? 1 : settings.winnerGridCols}, minmax(180px, 1fr))` 
+                      : `repeat(${Math.min(lastWinners.length, settings.winnerGridCols)}, minmax(180px, 1fr))` 
                   }}
                 >
                   {lastWinners.map((winner, idx) => (
