@@ -207,16 +207,14 @@ export const DrawScreen: React.FC<DrawScreenProps> = ({
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center text-white font-sans overflow-hidden">
       {/* Background Layer */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 bg-black">
         {settings.theme.backgroundType === 'color' && (
           <div className="w-full h-full" style={{ backgroundColor: settings.theme.backgroundColor }} />
         )}
         {settings.theme.backgroundType === 'image' && settings.theme.backgroundMedia && (
-          <img 
-            src={settings.theme.backgroundMedia} 
-            className="w-full h-full object-cover" 
-            referrerPolicy="no-referrer"
-            alt="bg"
+          <div 
+            className="w-full h-full bg-center bg-cover bg-no-repeat"
+            style={{ backgroundImage: `url(${settings.theme.backgroundMedia})` }}
           />
         )}
         {settings.theme.backgroundType === 'video' && settings.theme.backgroundMedia && (
@@ -235,50 +233,53 @@ export const DrawScreen: React.FC<DrawScreenProps> = ({
       <div className="relative z-10 w-full h-full flex flex-col items-center justify-between py-20 px-10">
         {/* Brand Logo */}
         {settings.logo?.url && (
-          <div 
-            className={`absolute top-10 ${settings.logo.position === 'left' ? 'left-10' : 'right-10'} z-20`}
+          <motion.div 
+            drag
+            dragMomentum={false}
+            className={`absolute top-10 ${settings.logo.position === 'left' ? 'left-10' : 'right-10'} z-20 cursor-move`}
             style={{ width: settings.logo.size }}
           >
             <img 
               src={settings.logo.url} 
               alt="Brand Logo" 
-              className="w-full h-auto object-contain drop-shadow-2xl"
+              className="w-full h-auto object-contain drop-shadow-2xl pointer-events-none"
               referrerPolicy="no-referrer"
             />
-          </div>
+          </motion.div>
         )}
 
-        {/* Header: Prize Info */}
-        <motion.div 
-          initial={{ y: -50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          className="text-center"
-        >
-          <h2 
-            className="font-black tracking-[0.2em] uppercase mb-8 drop-shadow-2xl"
+        {/* Header: Event & Prize Info */}
+        <div className="flex flex-col items-center w-full">
+          <motion.h2 
+            drag
+            dragMomentum={false}
+            className="font-black tracking-[0.2em] uppercase mb-8 drop-shadow-2xl cursor-move text-center"
             style={{ color: settings.theme.eventNameColor, fontSize: settings.eventNameSize }}
           >
             {settings.eventName}
-          </h2>
-          <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-2 rounded-full border border-white/20 mb-4">
-            <Trophy size={20} className="text-yellow-400" />
-            <span className="text-sm font-bold tracking-widest uppercase">Giải thưởng hiện tại</span>
-          </div>
-          <div className="flex flex-col items-center gap-6">
+          </motion.h2>
+
+          <motion.div 
+            drag
+            dragMomentum={false}
+            className="flex flex-col items-center gap-6 cursor-move"
+          >
+            <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-2 rounded-full border border-white/20">
+              <Trophy size={20} className="text-yellow-400" />
+              <span className="text-sm font-bold tracking-widest uppercase">Giải thưởng hiện tại</span>
+            </div>
+            
             {currentPrize?.image && (
-              <motion.div 
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                className="w-48 h-48 rounded-3xl overflow-hidden border-4 border-white/20 shadow-2xl bg-black/20 backdrop-blur-sm p-4"
-              >
+              <div className="w-48 h-48 rounded-3xl overflow-hidden border-4 border-white/20 shadow-2xl bg-black/20 backdrop-blur-sm p-4">
                 <img 
                   src={currentPrize.image} 
                   alt={currentPrize.name} 
-                  className="w-full h-full object-contain drop-shadow-xl"
+                  className="w-full h-full object-contain drop-shadow-xl pointer-events-none"
                   referrerPolicy="no-referrer"
                 />
-              </motion.div>
+              </div>
             )}
+            
             <div className="text-center">
               <h1 
                 className="font-black tracking-tighter mb-2 drop-shadow-2xl"
@@ -290,8 +291,8 @@ export const DrawScreen: React.FC<DrawScreenProps> = ({
                 Còn lại: <span className="text-white">{remainingCount}</span> / {currentPrize?.count}
               </p>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
         {/* Main: Draw Area */}
         <div className="flex-1 flex items-center justify-center w-full">
@@ -400,9 +401,11 @@ export const DrawScreen: React.FC<DrawScreenProps> = ({
             ) : (
               <motion.div 
                 key="idle"
+                drag
+                dragMomentum={false}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="text-white/20 text-9xl font-black italic uppercase tracking-tighter select-none"
+                className="text-white/20 text-9xl font-black italic uppercase tracking-tighter select-none cursor-move text-center"
               >
                 {settings.readyText || 'Sẵn sàng quay số'}
               </motion.div>
