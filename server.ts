@@ -21,7 +21,7 @@ const PORT = 3000;
 async function startServer() {
   try {
     const app = express();
-    app.use(express.json({ limit: '50mb' }));
+    app.use(express.json({ limit: '100mb' }));
     app.use(cookieParser());
 
     // Health check endpoint - must be first
@@ -47,7 +47,7 @@ async function startServer() {
 
   const upload = multer({ 
     storage,
-    limits: { fileSize: 50 * 1024 * 1024 } // 50MB limit
+    limits: { fileSize: 100 * 1024 * 1024 } // 100MB limit
   });
 
   // Database setup
