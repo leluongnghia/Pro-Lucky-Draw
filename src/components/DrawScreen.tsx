@@ -352,14 +352,14 @@ export const DrawScreen: React.FC<DrawScreenProps> = ({
                 onWheel={(e) => handleResize(e, 'winnerDisplay')}
                 initial={{ scale: 0.5, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                className="w-full px-12 cursor-move"
+                className={`px-12 cursor-move flex justify-center ${lastWinners.length === 1 ? 'w-full' : 'w-full'}`}
                 style={{ 
                   transform: `scale(${parseFloat(settings.winnerCardWidth) || 1})`,
                   maxWidth: '100%'
                 }}
               >
                 <div 
-                  className={`grid gap-6 ${settings.winnerLayout === 'list' ? 'flex flex-col' : ''}`}
+                  className={`grid gap-6 ${settings.winnerLayout === 'list' ? 'flex flex-col' : ''} ${lastWinners.length === 1 ? 'max-w-4xl w-full' : 'w-full'}`}
                   style={{ 
                     gridTemplateColumns: settings.winnerLayout === 'list' 
                       ? '1fr' 
