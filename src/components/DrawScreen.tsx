@@ -372,10 +372,10 @@ export const DrawScreen: React.FC<DrawScreenProps> = ({
                       initial={{ scale: 0, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       transition={{ delay: idx * 0.05 }}
-                      className={`bg-white text-black rounded-2xl shadow-2xl border-2 border-yellow-400 flex items-center justify-between text-left overflow-hidden transition-all ${
+                      className={`bg-white text-black rounded-2xl shadow-2xl border-2 border-yellow-400 flex overflow-hidden transition-all ${
                         settings.winnerLayout === 'list' 
-                        ? 'p-4 py-6 w-full' 
-                        : `flex-col text-center ${
+                        ? 'p-4 py-6 w-full items-center justify-between text-left' 
+                        : `flex-col items-center justify-center text-center ${
                             lastWinners.length === 1 ? 'p-12 py-16' : 
                             lastWinners.length <= 5 ? 'p-8 py-10' : 
                             lastWinners.length <= 10 ? 'p-6 py-8' : 'p-4 py-6'
@@ -408,20 +408,20 @@ export const DrawScreen: React.FC<DrawScreenProps> = ({
                           }`}>
                             {lastWinners.length === 1 ? 'Người trúng giải' : `#${idx + 1}`}
                           </h2>
-                          <div className={`font-black tracking-tighter leading-tight ${
+                          <div className={`font-black tracking-tighter leading-tight w-full ${
                             lastWinners.length === 1 ? 'text-7xl' :
                             lastWinners.length <= 5 ? 'text-5xl' :
                             lastWinners.length <= 10 ? 'text-3xl' : 'text-xl'
                           }`}>
                             {winner.name}
                           </div>
-                          <div className={`font-mono font-bold text-zinc-400 ${
+                          <div className={`font-mono font-bold text-zinc-400 w-full ${
                             lastWinners.length === 1 ? 'text-2xl mt-2' :
                             lastWinners.length <= 5 ? 'text-xl mt-1' : 'text-sm mt-0.5'
                           }`}>
                             {winner.id}
                           </div>
-                          <div className={`font-medium text-zinc-500 truncate w-full px-2 ${
+                          <div className={`font-medium text-zinc-500 text-center truncate w-full px-2 ${
                             lastWinners.length === 1 ? 'text-xl mt-3' :
                             lastWinners.length <= 5 ? 'text-lg mt-2' : 'text-xs mt-1'
                           }`}>
