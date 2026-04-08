@@ -414,10 +414,14 @@ export const DrawScreen: React.FC<DrawScreenProps> = ({
         </div>
 
         {/* Footer: Controls & Winners List */}
-        <div className="w-full flex flex-col gap-10">
+        <div className="w-full">
           <div className="grid grid-cols-3 items-end w-full">
             {/* Left: Reset Button */}
-            <div className="flex gap-6">
+            <motion.div 
+              drag
+              dragMomentum={false}
+              className="flex gap-6 cursor-move w-fit"
+            >
               <div className="relative">
                 <button 
                   onClick={() => setShowResetConfirm(!showResetConfirm)}
@@ -462,10 +466,14 @@ export const DrawScreen: React.FC<DrawScreenProps> = ({
                   )}
                 </AnimatePresence>
               </div>
-            </div>
+            </motion.div>
 
             {/* Center: Start Spin Button & Prize Selector */}
-            <div className="flex flex-col items-center gap-4">
+            <motion.div 
+              drag
+              dragMomentum={false}
+              className="flex flex-col items-center gap-4 cursor-move"
+            >
               <button 
                 onClick={startSpin}
                 disabled={isSpinning || remainingCount <= 0}
@@ -495,11 +503,15 @@ export const DrawScreen: React.FC<DrawScreenProps> = ({
                   <RotateCcw size={18} />
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right: Winners List */}
-            <div className="flex justify-end">
-              <div className="bg-black/40 backdrop-blur-xl border border-white/10 rounded-3xl p-6 w-80 max-h-64 overflow-y-auto shadow-2xl">
+            <motion.div 
+              drag
+              dragMomentum={false}
+              className="flex justify-end cursor-move"
+            >
+              <div className="bg-black/40 backdrop-blur-xl border border-white/10 rounded-3xl p-6 w-80 max-h-64 overflow-y-auto shadow-2xl pointer-events-auto">
                 <h3 className="text-xs font-bold uppercase tracking-widest text-white/40 mb-4">Danh sách trúng giải</h3>
                 <div className="space-y-3">
                   {prizeWinners.length === 0 && <div className="text-sm text-white/20 italic">Chưa có người trúng giải</div>}
@@ -523,13 +535,17 @@ export const DrawScreen: React.FC<DrawScreenProps> = ({
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
 
-      {/* Draw Count Selector - Absolutely positioned at bottom right */}
-      <div className="absolute bottom-6 right-6 z-30">
+      {/* Draw Count Selector - Draggable */}
+      <motion.div 
+        drag
+        dragMomentum={false}
+        className="absolute bottom-6 right-6 z-30 cursor-move"
+      >
         <div className="bg-black/60 backdrop-blur-2xl border border-white/10 rounded-full p-1.5 flex items-center gap-3 shadow-2xl">
           <span className="text-[9px] font-black uppercase tracking-[0.2em] text-white/20 ml-4">Số người / lần:</span>
           <div className="flex gap-1.5 pr-1">
@@ -550,7 +566,7 @@ export const DrawScreen: React.FC<DrawScreenProps> = ({
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
